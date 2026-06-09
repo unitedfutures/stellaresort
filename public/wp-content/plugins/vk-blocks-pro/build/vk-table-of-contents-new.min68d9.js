@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".vk_tableOfContents_list li").forEach(e=>{e.innerHTML=e.innerHTML.replace(/\uFFFC/g,"")}),document.querySelectorAll("#vk-tab-label").forEach(t=>{t.addEventListener("click",function(){var e=t.previousElementSibling;e&&"checkbox"===e.type&&(e.checked?t.textContent="CLOSE":t.textContent="OPEN")})})});
