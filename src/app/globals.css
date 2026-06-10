@@ -306,6 +306,16 @@ html{scroll-padding-top:var(--vk-size-admin-bar);}
   }
 }
 
+/* ===== Matterport 3D スキャン：中央揃え＋レスポンシブ ===== */
+.entry-body iframe[src*="matterport.com"] {
+  display: block;
+  margin: 2rem auto;
+  max-width: 100%;
+  width: 853px;
+  aspect-ratio: 853 / 480;
+  height: auto;
+}
+
 /* ===== WP ご予約セクションを非表示（BookingSection コンポーネントに置き換え） ===== */
 .wp-block-group:has(p#booking) {
   display: none !important;
