@@ -41,6 +41,7 @@ export default function BookingSection({ links }: BookingSectionProps) {
           style={{
             fontSize: "clamp(1.4rem, 3vw, 1.8rem)",
             fontWeight: 700,
+            borderBottom: "none",
             textAlign: "center",
             color: "#111",
             marginBottom: "0.8rem",
