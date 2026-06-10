@@ -71,7 +71,8 @@ export default function TopPage() {
       <div
         style={{
           position: "relative",
-          minHeight: "60vh",
+          height: "100svh",
+          minHeight: 500,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -92,13 +93,13 @@ export default function TopPage() {
             objectFit: "cover",
           }}
         />
+        {/* グラデーションオーバーレイ */}
         <span
           aria-hidden="true"
           style={{
             position: "absolute",
             inset: 0,
-            backgroundColor: "#000",
-            opacity: 0.38,
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%)",
           }}
         />
         <div
@@ -114,98 +115,186 @@ export default function TopPage() {
             src="/wp-content/uploads/2024/12/stella-logo-design-pre-4.png"
             alt="Stella 八ヶ岳"
             style={{
-              maxWidth: 200,
-              marginBottom: "1.5rem",
+              maxWidth: 220,
+              marginBottom: "2rem",
               filter: "brightness(0) invert(1)",
+              opacity: 0.95,
             }}
           />
-          <p style={{ fontSize: "1.1rem", letterSpacing: "0.15em", margin: 0 }}>
-            星空・サウナ・BBQ・大型スクリーン
+          <p
+            style={{
+              fontSize: "clamp(0.85rem, 2vw, 1.05rem)",
+              letterSpacing: "0.25em",
+              margin: "0 0 0.6rem",
+              opacity: 0.9,
+              fontWeight: 300,
+            }}
+          >
+            YATSUGATAKE / PRIVATE VILLA
           </p>
           <p
             style={{
-              fontSize: "0.95rem",
-              letterSpacing: "0.1em",
-              marginTop: "0.5rem",
-              opacity: 0.9,
+              fontSize: "clamp(1rem, 2.5vw, 1.3rem)",
+              letterSpacing: "0.15em",
+              margin: "0 0 2.5rem",
+              fontWeight: 500,
             }}
           >
-            八ヶ岳の一棟貸切専用宿泊施設
+            星空・サウナ・BBQ・大型スクリーン
           </p>
+          <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link
+              href="/haramura"
+              style={{
+                display: "inline-block",
+                padding: "0.8rem 2rem",
+                backgroundColor: "rgba(255,255,255,0.15)",
+                border: "1px solid rgba(255,255,255,0.7)",
+                color: "#fff",
+                textDecoration: "none",
+                letterSpacing: "0.12em",
+                fontSize: "0.85rem",
+                backdropFilter: "blur(4px)",
+                transition: "background 0.2s",
+              }}
+            >
+              原村を見る
+            </Link>
+            <Link
+              href="/himeki"
+              style={{
+                display: "inline-block",
+                padding: "0.8rem 2rem",
+                backgroundColor: "rgba(255,255,255,0.15)",
+                border: "1px solid rgba(255,255,255,0.7)",
+                color: "#fff",
+                textDecoration: "none",
+                letterSpacing: "0.12em",
+                fontSize: "0.85rem",
+                backdropFilter: "blur(4px)",
+                transition: "background 0.2s",
+              }}
+            >
+              姫木平を見る
+            </Link>
+          </div>
+        </div>
+        {/* スクロール誘導 */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "2rem",
+            left: "50%",
+            transform: "translateX(-50%)",
+            color: "#fff",
+            fontSize: "0.7rem",
+            letterSpacing: "0.2em",
+            opacity: 0.7,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "0.5rem",
+          }}
+        >
+          <span>SCROLL</span>
+          <span style={{ width: 1, height: 40, background: "rgba(255,255,255,0.6)", display: "block" }} />
         </div>
       </div>
 
       {/* ===== コンセプト ===== */}
       <section
         style={{
-          padding: "4rem 1.5rem",
+          padding: "6rem 2rem",
           textAlign: "center",
-          backgroundColor: "#fafafa",
+          backgroundColor: "#fff",
         }}
       >
-        <div style={{ maxWidth: 700, margin: "0 auto" }}>
+        <div style={{ maxWidth: 680, margin: "0 auto" }}>
+          <p
+            style={{
+              fontSize: "0.75rem",
+              letterSpacing: "0.3em",
+              color: "#999",
+              marginBottom: "1.5rem",
+              fontWeight: 400,
+            }}
+          >
+            CONCEPT
+          </p>
           <h2
             style={{
-              fontSize: "1.6rem",
+              fontSize: "clamp(1.4rem, 3vw, 1.9rem)",
               fontWeight: 700,
-              letterSpacing: "0.1em",
-              marginBottom: "1.5rem",
-              color: "#1a1a1a",
+              letterSpacing: "0.08em",
+              marginBottom: "2rem",
+              color: "#111",
+              lineHeight: 1.5,
             }}
           >
             自然の中で、特別な時間を。
           </h2>
-          <p style={{ lineHeight: 2, color: "#444", fontSize: "0.97rem" }}>
+          <p style={{ lineHeight: 2.2, color: "#555", fontSize: "0.97rem" }}>
             Stella（ステラ）は、八ヶ岳の豊かな自然に抱かれた一棟貸切の宿泊施設です。
             <br />
             満天の星空の下でのサウナ、仲間と囲むBBQ、大型スクリーンでの映画鑑賞——
             <br />
             日常を離れ、大切な人と過ごすかけがえのない時間をご提供します。
-            <br />
-            長野県原村と姫木平、2つの施設からお選びください。
           </p>
         </div>
       </section>
 
       {/* ===== 2施設カード ===== */}
       <section
-        style={{ padding: "3rem 1.5rem 5rem", backgroundColor: "#fff" }}
+        style={{
+          padding: "2rem 2rem 7rem",
+          backgroundColor: "#f7f6f4",
+        }}
       >
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <h2
+        <div style={{ maxWidth: 1140, margin: "0 auto" }}>
+          <p
             style={{
               textAlign: "center",
-              fontSize: "1.1rem",
-              letterSpacing: "0.2em",
+              fontSize: "0.75rem",
+              letterSpacing: "0.3em",
               color: "#999",
-              marginBottom: "2.5rem",
+              marginBottom: "3.5rem",
               fontWeight: 400,
             }}
           >
             OUR FACILITIES
-          </h2>
+          </p>
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-              gap: "2rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+              gap: "2.5rem",
             }}
           >
             {/* 原村カード */}
             <Link href="/haramura" style={{ textDecoration: "none", color: "inherit" }}>
               <div
                 style={{
-                  borderRadius: 8,
+                  backgroundColor: "#fff",
+                  borderRadius: 2,
                   overflow: "hidden",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.10)",
+                  boxShadow: "0 2px 20px rgba(0,0,0,0.07)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(-6px)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 40px rgba(0,0,0,0.14)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 20px rgba(0,0,0,0.07)";
                 }}
               >
                 <div
                   style={{
                     position: "relative",
-                    paddingTop: "66%",
+                    paddingTop: "62%",
                     overflow: "hidden",
-                    backgroundColor: "#eee",
+                    backgroundColor: "#ddd",
                   }}
                 >
                   <img
@@ -217,36 +306,38 @@ export default function TopPage() {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.6s ease",
                     }}
                   />
                 </div>
-                <div style={{ padding: "1.8rem" }}>
+                <div style={{ padding: "2rem 2rem 2.2rem" }}>
                   <p
                     style={{
-                      fontSize: "0.75rem",
-                      letterSpacing: "0.18em",
-                      color: "#aaa",
-                      marginBottom: "0.5rem",
+                      fontSize: "0.7rem",
+                      letterSpacing: "0.22em",
+                      color: "#bbb",
+                      marginBottom: "0.6rem",
                     }}
                   >
                     NAGANO / HARA VILLAGE
                   </p>
                   <h3
                     style={{
-                      fontSize: "1.35rem",
+                      fontSize: "1.3rem",
                       fontWeight: 700,
-                      marginBottom: "0.8rem",
-                      color: "#1a1a1a",
+                      marginBottom: "1rem",
+                      color: "#111",
+                      letterSpacing: "0.05em",
                     }}
                   >
                     Stella 八ヶ岳 原村
                   </h3>
                   <p
                     style={{
-                      fontSize: "0.9rem",
-                      color: "#555",
-                      lineHeight: 1.9,
-                      marginBottom: "1.4rem",
+                      fontSize: "0.88rem",
+                      color: "#666",
+                      lineHeight: 2,
+                      marginBottom: "1.8rem",
                     }}
                   >
                     長野県諏訪郡原村。八ヶ岳の麓に佇む一棟貸切の宿。
@@ -255,13 +346,15 @@ export default function TopPage() {
                   </p>
                   <span
                     style={{
-                      display: "inline-block",
-                      padding: "0.6rem 1.5rem",
-                      backgroundColor: "#003144",
-                      color: "#fff",
-                      borderRadius: 4,
-                      fontSize: "0.85rem",
-                      letterSpacing: "0.05em",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      fontSize: "0.82rem",
+                      color: "#003144",
+                      fontWeight: 600,
+                      letterSpacing: "0.06em",
+                      borderBottom: "1px solid #003144",
+                      paddingBottom: "2px",
                     }}
                   >
                     施設を見る →
@@ -274,17 +367,27 @@ export default function TopPage() {
             <Link href="/himeki" style={{ textDecoration: "none", color: "inherit" }}>
               <div
                 style={{
-                  borderRadius: 8,
+                  backgroundColor: "#fff",
+                  borderRadius: 2,
                   overflow: "hidden",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.10)",
+                  boxShadow: "0 2px 20px rgba(0,0,0,0.07)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(-6px)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 40px rgba(0,0,0,0.14)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 20px rgba(0,0,0,0.07)";
                 }}
               >
                 <div
                   style={{
                     position: "relative",
-                    paddingTop: "66%",
+                    paddingTop: "62%",
                     overflow: "hidden",
-                    backgroundColor: "#eee",
+                    backgroundColor: "#ddd",
                   }}
                 >
                   <img
@@ -296,36 +399,38 @@ export default function TopPage() {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      transition: "transform 0.6s ease",
                     }}
                   />
                 </div>
-                <div style={{ padding: "1.8rem" }}>
+                <div style={{ padding: "2rem 2rem 2.2rem" }}>
                   <p
                     style={{
-                      fontSize: "0.75rem",
-                      letterSpacing: "0.18em",
-                      color: "#aaa",
-                      marginBottom: "0.5rem",
+                      fontSize: "0.7rem",
+                      letterSpacing: "0.22em",
+                      color: "#bbb",
+                      marginBottom: "0.6rem",
                     }}
                   >
                     NAGANO / HIMEKI DAIRA
                   </p>
                   <h3
                     style={{
-                      fontSize: "1.35rem",
+                      fontSize: "1.3rem",
                       fontWeight: 700,
-                      marginBottom: "0.8rem",
-                      color: "#1a1a1a",
+                      marginBottom: "1rem",
+                      color: "#111",
+                      letterSpacing: "0.05em",
                     }}
                   >
                     Stella 八ヶ岳 姫木平
                   </h3>
                   <p
                     style={{
-                      fontSize: "0.9rem",
-                      color: "#555",
-                      lineHeight: 1.9,
-                      marginBottom: "1.4rem",
+                      fontSize: "0.88rem",
+                      color: "#666",
+                      lineHeight: 2,
+                      marginBottom: "1.8rem",
                     }}
                   >
                     長野県小県郡長和町姫木平。最大19名収容。
@@ -334,13 +439,15 @@ export default function TopPage() {
                   </p>
                   <span
                     style={{
-                      display: "inline-block",
-                      padding: "0.6rem 1.5rem",
-                      backgroundColor: "#003144",
-                      color: "#fff",
-                      borderRadius: 4,
-                      fontSize: "0.85rem",
-                      letterSpacing: "0.05em",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "0.5rem",
+                      fontSize: "0.82rem",
+                      color: "#003144",
+                      fontWeight: 600,
+                      letterSpacing: "0.06em",
+                      borderBottom: "1px solid #003144",
+                      paddingBottom: "2px",
                     }}
                   >
                     施設を見る →

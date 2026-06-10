@@ -132,3 +132,176 @@ html{scroll-padding-top:var(--vk-size-admin-bar);}
   opacity: 1 !important;
   transition: none !important;
 }
+
+/* ===== 施設ページ デザイン改善 ===== */
+
+/* ページ背景 */
+.entry-body {
+  background: #fff;
+}
+
+/* alignfull 以外のブロックはセンタリング＋パディング */
+.entry-body > *:not(.alignfull) {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  padding-right: clamp(1.5rem, 5vw, 4rem);
+  box-sizing: border-box;
+}
+
+/* スペーサーはパディング不要 */
+.entry-body > .wp-block-spacer {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* ヒーロー動画：高さを確保 */
+.entry-body .wp-block-cover.alignfull {
+  min-height: 70vh !important;
+}
+
+/* カバーオーバーレイを少し薄く（動画が見えやすく） */
+.entry-body .wp-block-cover__background.has-background-dim-20 {
+  opacity: 0.15 !important;
+}
+
+/* タイポグラフィ */
+.entry-body .wp-block-paragraph {
+  font-size: 1rem;
+  line-height: 2;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* 3カラムセクション */
+.entry-body .wp-block-columns {
+  gap: 2.5rem !important;
+  align-items: flex-start;
+}
+
+.entry-body > .wp-block-columns {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* カラム内の見出し */
+.entry-body .wp-block-column h2,
+.entry-body .wp-block-column h3,
+.entry-body .wp-block-column h4 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #003144;
+  letter-spacing: 0.04em;
+}
+
+/* ギャラリー */
+.entry-body .wp-block-gallery {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.entry-body > .wp-block-gallery {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.entry-body .wp-block-gallery figure.wp-block-image {
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.entry-body .wp-block-gallery figure.wp-block-image img {
+  transition: transform 0.4s ease;
+  border-radius: 6px;
+}
+
+.entry-body .wp-block-gallery figure.wp-block-image:hover img {
+  transform: scale(1.04);
+}
+
+/* 単独画像 */
+.entry-body .wp-block-image:not(.wp-block-gallery .wp-block-image) img {
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+  width: 100%;
+  height: auto;
+}
+
+/* ボタン */
+.entry-body .wp-block-button__link {
+  background-color: #003144 !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+  padding: 0.85rem 2.5rem !important;
+  font-size: 0.9rem !important;
+  letter-spacing: 0.08em !important;
+  transition: background-color 0.2s ease, transform 0.2s ease !important;
+  border: none !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+.entry-body .wp-block-button__link:hover {
+  background-color: #00516f !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0,49,68,0.25) !important;
+}
+
+/* グループブロックの余白 */
+.entry-body .wp-block-group {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* ページ末尾の余白 */
+.entry-body {
+  padding-bottom: 4rem;
+}
+
+/* モバイル対応 */
+@media (max-width: 768px) {
+  .entry-body > *:not(.alignfull) {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  .entry-body .wp-block-cover.alignfull {
+    min-height: 50vh !important;
+  }
+
+  /* モバイルではカラムを縦積みに */
+  .entry-body .wp-block-columns.wp-container-core-columns-is-layout-7387b849 {
+    flex-wrap: wrap !important;
+  }
+
+  .entry-body .wp-block-columns.wp-container-core-columns-is-layout-7387b849 .wp-block-column {
+    flex-basis: 100% !important;
+    min-width: 100% !important;
+  }
+}
+
+/* ===== page-header タイトルエリアの改善 ===== */
+.page-header {
+  min-height: 11rem !important;
+  display: flex;
+  align-items: center;
+}
+
+.page-header-inner {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.page-header-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  position: relative;
+  z-index: 1;
+}
