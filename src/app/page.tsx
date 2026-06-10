@@ -209,7 +209,7 @@ export default function TopPage() {
                   }}
                 >
                   <img
-                    src="/wp-content/uploads/2024/12/098-PC040161-1024x768.jpg"
+                    src="/wp-content/uploads/2024/12/P6054473-1024x768.jpg"
                     alt="Stella 八ヶ岳原村"
                     style={{
                       position: "absolute",
@@ -288,7 +288,7 @@ export default function TopPage() {
                   }}
                 >
                   <img
-                    src="/wp-content/uploads/2026/01/1-1-1-1024x977.jpg"
+                    src="/wp-content/uploads/2026/04/PXL_20260403_093735966-1-1024x768.jpg"
                     alt="Stella 八ヶ岳姫木平"
                     style={{
                       position: "absolute",
