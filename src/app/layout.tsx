@@ -15,6 +15,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        <link rel="icon" href="/favicon-32.jpg" sizes="32x32" />
+        <link rel="icon" href="/favicon-192.jpg" sizes="192x192" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.jpg" />
         <link rel="stylesheet" href="/wp-includes/blocks/cover/style.min8717.css" />
         <link rel="stylesheet" href="/wp-content/plugins/vk-all-in-one-expansion-unit/assets/css/vkExUnit_stylef895.css" />
         <link rel="stylesheet" href="/wp-content/plugins/lightning-g3-pro-unit/inc/header-top/package/css/header-topdc63.css" />
