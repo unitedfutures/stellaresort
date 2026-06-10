@@ -271,24 +271,8 @@ export default function TopPage() {
             }}
           >
             {/* 原村カード */}
-            <Link href="/haramura" style={{ textDecoration: "none", color: "inherit" }}>
-              <div
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: 2,
-                  overflow: "hidden",
-                  boxShadow: "0 2px 20px rgba(0,0,0,0.07)",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(-6px)";
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 40px rgba(0,0,0,0.14)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 20px rgba(0,0,0,0.07)";
-                }}
-              >
+            <Link href="/haramura" style={{ textDecoration: "none", color: "inherit" }} className="facility-card-link">
+              <div className="facility-card">
                 <div
                   style={{
                     position: "relative",
@@ -364,24 +348,8 @@ export default function TopPage() {
             </Link>
 
             {/* 姫木平カード */}
-            <Link href="/himeki" style={{ textDecoration: "none", color: "inherit" }}>
-              <div
-                style={{
-                  backgroundColor: "#fff",
-                  borderRadius: 2,
-                  overflow: "hidden",
-                  boxShadow: "0 2px 20px rgba(0,0,0,0.07)",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(-6px)";
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 12px 40px rgba(0,0,0,0.14)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-                  (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 20px rgba(0,0,0,0.07)";
-                }}
-              >
+            <Link href="/himeki" style={{ textDecoration: "none", color: "inherit" }} className="facility-card-link">
+              <div className="facility-card">
                 <div
                   style={{
                     position: "relative",
