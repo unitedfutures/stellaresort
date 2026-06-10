@@ -54,7 +54,7 @@ export default function SiteLayout({ title, breadcrumb, children, fullWidth }: S
           <ol className="breadcrumb-list" itemScope itemType="https://schema.org/BreadcrumbList">
             <li className="breadcrumb-list__item breadcrumb-list__item--home" itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
               <a href="https://stellaresort.jp/" itemProp="item">
-                <i className="fas fa-fw fa-home"></i><span itemProp="name">Stella八ヶ岳原村</span>
+                <i className="fas fa-fw fa-home"></i><span itemProp="name">Stella八ヶ岳</span>
               </a>
               <meta itemProp="position" content="1" />
             </li>
