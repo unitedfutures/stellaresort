@@ -365,10 +365,6 @@ html{scroll-padding-top:var(--vk-size-admin-bar);}
   height: auto;
 }
 
-/* ===== WP ご予約セクションを非表示（BookingSection コンポーネントに置き換え） ===== */
-.wp-block-group:has(p#booking) {
-  display: none !important;
-}
 
 /* ===== page-header タイトルエリアの改善 ===== */
 .page-header {
