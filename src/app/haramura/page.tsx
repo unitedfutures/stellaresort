@@ -28,6 +28,7 @@ const haramuraBookingLinks = [
   {
     label: "Airbnb で予約",
     href: "https://www.airbnb.jp/rooms/35508285",
+    color: "#FF5A5F",
   },
   {
     label: "Booking.com で予約",
