@@ -83,7 +83,7 @@ export default function SiteLayout({ title, breadcrumb, children }: SiteLayoutPr
           <div className="row">
             <div className="col-lg-6 col-md-6">
               <aside className="widget widget_block widget_text">
-                <p><strong style={{ fontSize: 18 }}>Stella</strong></p>
+                <p><strong style={{ fontSize: 18 }}>Stella八ヶ岳</strong></p>
               </aside>
               <aside className="widget widget_block widget_text">
                 <p>
@@ -117,7 +117,7 @@ export default function SiteLayout({ title, breadcrumb, children }: SiteLayoutPr
           </div>
         </div>
         <div className="container site-footer-copyright">
-          <p>Copyright &copy; Stella 八ヶ岳 All Rights Reserved.</p>
+          <p>Copyright &copy; <a href="http://united-futures.com/" target="_blank" rel="noreferrer noopener" style={{ color: "inherit" }}>United Futures, Inc.</a> All Rights Reserved.</p>
         </div>
       </footer>
 
