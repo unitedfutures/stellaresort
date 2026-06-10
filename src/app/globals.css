@@ -371,24 +371,62 @@ html{scroll-padding-top:var(--vk-size-admin-bar);}
 /* ── Type B: has-large-font-size（BBQ・サウナ・焚き火・スターウォッチング） ── */
 .entry-body p.has-large-font-size.wp-block-paragraph[id]:not(.has-background) {
   background: none !important;
-  padding: 4rem 1rem 0.5rem !important;
+  padding: 4.5rem 1rem 0.5rem !important;
   margin: 0 auto !important;
+  font-size: 0 !important; /* テキストノード・<br>を非表示 */
+  line-height: 1 !important;
   text-align: center !important;
-  font-size: clamp(1.6rem, 3vw, 2rem) !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.1em !important;
-  color: #111 !important;
-  line-height: 1.2 !important;
-  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
 }
 
+/* 装飾ライン */
 .entry-body p.has-large-font-size.wp-block-paragraph[id]:not(.has-background)::before {
   content: '' !important;
   display: block !important;
   width: 36px !important;
   height: 1px !important;
   background-color: #003144 !important;
-  margin: 0 auto 1.3rem !important;
+  order: -2 !important;
+  margin-bottom: 0.8rem !important;
+}
+
+/* 英語サブラベル（<mark class="has-inline-color has-cyan-bluish-gray-color">） */
+.entry-body p.has-large-font-size.wp-block-paragraph[id]:not(.has-background) > mark {
+  order: -1 !important;
+  font-size: 0.68rem !important;
+  letter-spacing: 0.32em !important;
+  color: #aaa !important;
+  font-weight: 400 !important;
+  text-transform: uppercase !important;
+  background: none !important;
+}
+
+.entry-body p.has-large-font-size.wp-block-paragraph[id]:not(.has-background) > mark span {
+  font-size: inherit !important;
+  color: inherit !important;
+}
+
+/* 日本語メイン見出し（<strong> または <a><strong>） */
+.entry-body p.has-large-font-size.wp-block-paragraph[id]:not(.has-background) > strong,
+.entry-body p.has-large-font-size.wp-block-paragraph[id]:not(.has-background) > a > strong,
+.entry-body p.has-large-font-size.wp-block-paragraph[id]:not(.has-background) > a {
+  display: block !important;
+  font-size: clamp(1.6rem, 3vw, 2rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.1em !important;
+  color: #111 !important;
+  line-height: 1.2 !important;
+  order: 0 !important;
+  text-decoration: none !important;
+}
+
+/* <br>非表示 */
+.entry-body p.has-large-font-size.wp-block-paragraph[id]:not(.has-background) br,
+.entry-body p.has-background.wp-block-paragraph[id] br {
+  display: none !important;
 }
 
 /* ===== Matterport 3D スキャン：中央揃え＋レスポンシブ ===== */
