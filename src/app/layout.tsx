@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <head>
+        <link rel="stylesheet" href="/wp-includes/blocks/cover/style.min8717.css" />
         <link rel="stylesheet" href="/wp-content/plugins/vk-all-in-one-expansion-unit/assets/css/vkExUnit_stylef895.css" />
         <link rel="stylesheet" href="/wp-content/plugins/lightning-g3-pro-unit/inc/header-top/package/css/header-topdc63.css" />
         <link rel="stylesheet" href="/wp-content/plugins/contact-form-7/includes/css/styles1b46.css" />
@@ -82,8 +84,25 @@ export default function RootLayout({
       </head>
       <body className="wp-embed-responsive wp-theme-lightning vk-blocks sidebar-fix sidebar-fix-priority-top device-pc fa_v6_css">
         {children}
-        <script src="/wp-includes/js/jquery/jquery.minf43b.js"></script>
-        <script src="/wp-includes/js/jquery/jquery-migrate.min5589.js"></script>
+        <Script src="/wp-includes/js/jquery/jquery.minf43b.js" strategy="beforeInteractive" />
+        <Script src="/wp-includes/js/jquery/jquery-migrate.min5589.js" strategy="beforeInteractive" />
+        <Script src="/wp-content/plugins/vk-blocks-pro/vendor/vektor-inc/vk-swiper/src/assets/js/swiper-bundle.min.js" strategy="afterInteractive" />
+        <Script src="/wp-content/plugins/vk-blocks-pro/build/vk-slider.min.js" strategy="afterInteractive" />
+        <Script id="swiper-init" strategy="afterInteractive">{`
+          (function tryInitSwiper(attempts) {
+            if (typeof Swiper !== 'undefined' && document.querySelector('.lightning_swiper')) {
+              new Swiper('.lightning_swiper', {
+                slidesPerView: 1, spaceBetween: 0, loop: true,
+                autoplay: { delay: 4000 },
+                pagination: { el: '.swiper-pagination', clickable: true },
+                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+                effect: 'slide'
+              });
+            } else if (attempts > 0) {
+              setTimeout(function(){ tryInitSwiper(attempts - 1); }, 300);
+            }
+          })(10);
+        `}</Script>
       </body>
     </html>
   );

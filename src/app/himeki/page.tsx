@@ -10,7 +10,7 @@ const html = "<div class=\"entry-body\">\n\t\t\t\t\n<p class=\"wp-block-paragrap
 
 export default function HimekiPage() {
   return (
-    <SiteLayout title="Stella八ヶ岳姫木平" breadcrumb="姫木平">
+    <SiteLayout title="Stella八ヶ岳姫木平" breadcrumb="姫木平" fullWidth>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </SiteLayout>
   );

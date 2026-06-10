@@ -2,9 +2,10 @@ interface SiteLayoutProps {
   title: string;
   breadcrumb: string;
   children: React.ReactNode;
+  fullWidth?: boolean;
 }
 
-export default function SiteLayout({ title, breadcrumb, children }: SiteLayoutProps) {
+export default function SiteLayout({ title, breadcrumb, children, fullWidth }: SiteLayoutProps) {
   return (
     <>
       <header id="site-header" className="site-header site-header--layout--nav-float">
@@ -65,18 +66,26 @@ export default function SiteLayout({ title, breadcrumb, children }: SiteLayoutPr
         </div>
       </div>
 
-      <div className="site-body">
-        <div className="site-body-container container">
-          <div className="main-section main-section--col--two" id="main" role="main">
-            <div className="entry entry-full">
-              <div className="entry-body">
-                {children}
+      {fullWidth ? (
+        <div className="site-body">
+          <div id="main" role="main" style={{ overflow: "hidden" }}>
+            {children}
+          </div>
+        </div>
+      ) : (
+        <div className="site-body">
+          <div className="site-body-container container">
+            <div className="main-section main-section--col--two" id="main" role="main">
+              <div className="entry entry-full">
+                <div className="entry-body">
+                  {children}
+                </div>
               </div>
             </div>
+            <div className="sub-section sub-section--col--two"></div>
           </div>
-          <div className="sub-section sub-section--col--two"></div>
         </div>
-      </div>
+      )}
 
       <footer className="site-footer">
         <div className="container site-footer-content">

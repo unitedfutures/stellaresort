@@ -10,7 +10,7 @@ const html = "<div class=\"entry-body\">\n\t\t\t\t\n<p class=\"wp-block-paragrap
 
 export default function HaramuraPage() {
   return (
-    <SiteLayout title="Stella八ヶ岳原村" breadcrumb="原村">
+    <SiteLayout title="Stella八ヶ岳原村" breadcrumb="原村" fullWidth>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </SiteLayout>
   );
