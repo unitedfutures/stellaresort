@@ -25,27 +25,30 @@ export default function BookingSection({ links }: BookingSectionProps) {
     >
       <div style={{ maxWidth: 800, margin: "0 auto" }}>
         {/* セクションタイトル */}
-        <p
-          style={{
-            fontSize: "0.72rem",
-            letterSpacing: "0.3em",
-            color: "#999",
-            textAlign: "center",
-            marginBottom: "1rem",
-            fontWeight: 400,
-          }}
-        >
-          RESERVATION
-        </p>
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <div style={{ width: 36, height: 1, backgroundColor: "#003144", margin: "0 auto 1.3rem" }} />
+          <p
+            style={{
+              fontSize: "0.68rem",
+              letterSpacing: "0.32em",
+              color: "#aaa",
+              marginBottom: "0.5rem",
+              fontWeight: 400,
+              textTransform: "uppercase",
+            }}
+          >
+            RESERVATION
+          </p>
+        </div>
         <h2
           style={{
-            fontSize: "clamp(1.4rem, 3vw, 1.8rem)",
+            fontSize: "clamp(1.6rem, 3vw, 2rem)",
             fontWeight: 700,
             borderBottom: "none",
             textAlign: "center",
             color: "#111",
             marginBottom: "0.8rem",
-            letterSpacing: "0.08em",
+            letterSpacing: "0.1em",
           }}
         >
           ご予約
