@@ -306,6 +306,55 @@ html{scroll-padding-top:var(--vk-size-admin-bar);}
   }
 }
 
+/* ===== セクション大見出しの統一デザイン ===== */
+/* WP: <p id="stay2" style="background-color:#d4dbe1">ご宿泊<br><span><mark>Stay</mark></span></p> */
+.entry-body p.has-background.wp-block-paragraph[id] {
+  background: none !important;
+  background-color: transparent !important;
+  padding: 5rem 1rem 0 !important;
+  margin: 0 auto !important;
+  font-size: 0 !important; /* テキストノード（&nbsp;など）を非表示 */
+  line-height: 1 !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 0.6rem !important;
+}
+
+/* 英語サブラベル（例: Stay / Information）を上に並べる */
+.entry-body p.has-background.wp-block-paragraph[id] > span {
+  order: -1;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.3em !important;
+  color: #999 !important;
+  font-weight: 400 !important;
+  text-transform: uppercase;
+}
+
+.entry-body p.has-background.wp-block-paragraph[id] > span mark,
+.entry-body p.has-background.wp-block-paragraph[id] > span a {
+  background: none !important;
+  color: #999 !important;
+  font-size: inherit !important;
+  text-decoration: none !important;
+}
+
+/* 日本語メイン見出し */
+.entry-body p.has-background.wp-block-paragraph[id] > strong {
+  display: block !important;
+  font-size: 1.8rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  color: #111 !important;
+  line-height: 1.3 !important;
+}
+
+.entry-body p.has-background.wp-block-paragraph[id] > strong a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
 /* ===== Matterport 3D スキャン：中央揃え＋レスポンシブ ===== */
 .entry-body iframe[src*="matterport.com"] {
   display: block;
