@@ -306,6 +306,12 @@ html{scroll-padding-top:var(--vk-size-admin-bar);}
   }
 }
 
+/* ===== Lightningテーマ h2 ボーダー全体リセット ===== */
+/* entry-body外（retreat等）のh2にも青ボーダーが付くのを防ぐ */
+h2 {
+  border-bottom: none !important;
+}
+
 /* ===== セクション大見出しの統一デザイン ===== */
 
 /* ── Type A: has-background あり（ご宿泊・基本情報・アクセス・体験） ── */
