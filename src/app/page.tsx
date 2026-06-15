@@ -428,7 +428,8 @@ export default function TopPage() {
       </section>
 
       {/* ===== 企業研修・合宿バナー ===== */}
-      <section style={{ position: "relative", overflow: "hidden", height: 160 }}>
+      <section style={{ padding: "0 clamp(1.5rem, 5vw, 4rem) 4rem" }}>
+      <section style={{ position: "relative", overflow: "hidden", height: 160, borderRadius: 6 }}>
         <img
           src="/wp-content/uploads/2025/01/BBQ-img-1-1024x482.jpg"
           alt="企業研修・合宿"
@@ -500,6 +501,7 @@ export default function TopPage() {
             詳しく見る →
           </Link>
         </div>
+      </section>
       </section>
 
       {/* ===== フッター ===== */}
