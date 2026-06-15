@@ -26,7 +26,7 @@ const features = [
   },
   {
     icon: "🍖",
-    title: "会議後はBBQ・焚き火",
+    title: "会議後はBBQや焚き火",
     body: "仕事モードをオフにしてチームで囲むBBQと焚き火。リラックスした雰囲気がアイデアと絆を生みます。",
   },
   {
@@ -235,6 +235,9 @@ export default function RetreatPage() {
               </div>
             ))}
           </div>
+          <p style={{ textAlign: "center", fontSize: "0.75rem", color: "#aaa", marginTop: "2.5rem" }}>
+            ※ご提供内容は施設により異なりますのでご確認ください
+          </p>
         </div>
       </section>
 
