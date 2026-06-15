@@ -86,6 +86,7 @@ export default function RootLayout({
         `}</style>
       </head>
       <body className="wp-embed-responsive wp-theme-lightning vk-blocks sidebar-fix sidebar-fix-priority-top device-pc fa_v6_css">
+        <div id="google_translate_element" style={{ display: "none" }} />
         {children}
         <Script src="/wp-includes/js/jquery/jquery.minf43b.js" strategy="beforeInteractive" />
         <Script src="/wp-includes/js/jquery/jquery-migrate.min5589.js" strategy="beforeInteractive" />
@@ -96,12 +97,17 @@ export default function RootLayout({
             new google.translate.TranslateElement({
               pageLanguage: 'ja',
               includedLanguages: 'en,zh-CN,zh-TW,ko,fr,de,es,it,pt',
-              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
               autoDisplay: false
             }, 'google_translate_element');
           }
         `}</Script>
         <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
+        <Script id="google-translate-hide-bar" strategy="afterInteractive">{`
+          /* Google Translateのツールバーを非表示 */
+          var style = document.createElement('style');
+          style.innerHTML = '.goog-te-banner-frame{display:none!important} body{top:0!important}';
+          document.head.appendChild(style);
+        `}</Script>
         <Script id="swiper-init" strategy="afterInteractive">{`
           (function tryInitSwiper(attempts) {
             if (typeof Swiper !== 'undefined' && document.querySelector('.lightning_swiper')) {

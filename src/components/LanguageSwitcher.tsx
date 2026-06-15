@@ -14,10 +14,20 @@ const languages = [
   { code: "pt", label: "Português", flag: "🇵🇹" },
 ];
 
+function getCurrentLang(): string {
+  if (typeof document === "undefined") return "ja";
+  const match = document.cookie.match(/googtrans=\/ja\/([^;]+)/);
+  return match ? match[1] : "ja";
+}
+
 export default function LanguageSwitcher() {
   const [open, setOpen] = useState(false);
-  const [current, setCurrent] = useState(languages[0]);
+  const [currentCode, setCurrentCode] = useState("ja");
   const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setCurrentCode(getCurrentLang());
+  }, []);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
@@ -30,29 +40,23 @@ export default function LanguageSwitcher() {
   }, []);
 
   const switchLanguage = (lang: (typeof languages)[0]) => {
-    setCurrent(lang);
     setOpen(false);
+    if (lang.code === currentCode) return;
 
     if (lang.code === "ja") {
-      // 日本語に戻す: cookieを削除してリロード
+      // 日本語: cookieを削除してリロード
       document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname;
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=." + location.hostname;
       window.location.reload();
-      return;
+    } else {
+      // 他言語: googtrans cookieをセットしてリロード
+      document.cookie = `googtrans=/ja/${lang.code}; path=/`;
+      document.cookie = `googtrans=/ja/${lang.code}; path=/; domain=.` + location.hostname;
+      window.location.reload();
     }
-
-    // Google Translate の隠しselectを操作
-    const trySwitch = (attempts: number) => {
-      const select = document.querySelector(".goog-te-combo") as HTMLSelectElement | null;
-      if (select) {
-        select.value = lang.code;
-        select.dispatchEvent(new Event("change"));
-      } else if (attempts > 0) {
-        setTimeout(() => trySwitch(attempts - 1), 300);
-      }
-    };
-    trySwitch(10);
   };
+
+  const current = languages.find((l) => l.code === currentCode) ?? languages[0];
 
   return (
     <div ref={ref} style={{ position: "relative", display: "inline-block" }}>
@@ -94,7 +98,7 @@ export default function LanguageSwitcher() {
             margin: 0,
             padding: "0.3rem 0",
             zIndex: 9999,
-            minWidth: 150,
+            minWidth: 160,
           }}
         >
           {languages.map((lang) => (
@@ -107,13 +111,13 @@ export default function LanguageSwitcher() {
                   gap: "0.5rem",
                   width: "100%",
                   padding: "0.45rem 1rem",
-                  background: lang.code === current.code ? "#f0f4f6" : "none",
+                  background: lang.code === currentCode ? "#f0f4f6" : "none",
                   border: "none",
                   cursor: "pointer",
                   fontSize: "0.82rem",
                   color: "#111",
                   textAlign: "left",
-                  fontWeight: lang.code === current.code ? 700 : 400,
+                  fontWeight: lang.code === currentCode ? 700 : 400,
                 }}
               >
                 <span style={{ fontSize: "1rem" }}>{lang.flag}</span>
@@ -123,9 +127,6 @@ export default function LanguageSwitcher() {
           ))}
         </ul>
       )}
-
-      {/* Google Translate 隠しコンテナ */}
-      <div id="google_translate_element" style={{ display: "none" }} />
     </div>
   );
 }
