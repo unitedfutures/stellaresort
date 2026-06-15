@@ -1,3 +1,5 @@
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+
 interface SiteLayoutProps {
   title: string;
   breadcrumb: string;
@@ -18,6 +20,9 @@ export default function SiteLayout({ title, breadcrumb, children, fullWidth }: S
                   <span className="header-top-tel-wrap">
                     <i className="fas fa-mobile-alt"></i>TEL.050-1792-1781
                   </span>
+                </li>
+                <li style={{ display: "flex", alignItems: "center", marginLeft: "0.75rem" }}>
+                  <LanguageSwitcher />
                 </li>
               </ul>
             </nav>

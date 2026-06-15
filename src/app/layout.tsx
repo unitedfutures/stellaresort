@@ -91,6 +91,17 @@ export default function RootLayout({
         <Script src="/wp-includes/js/jquery/jquery-migrate.min5589.js" strategy="beforeInteractive" />
         <Script src="/wp-content/plugins/vk-blocks-pro/vendor/vektor-inc/vk-swiper/src/assets/js/swiper-bundle.min.js" strategy="afterInteractive" />
         <Script src="/wp-content/plugins/vk-blocks-pro/build/vk-slider.min.js" strategy="afterInteractive" />
+        <Script id="google-translate-init" strategy="afterInteractive">{`
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'ja',
+              includedLanguages: 'en,zh-CN,zh-TW,ko,fr,de,es,it,pt',
+              layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+              autoDisplay: false
+            }, 'google_translate_element');
+          }
+        `}</Script>
+        <Script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" strategy="afterInteractive" />
         <Script id="swiper-init" strategy="afterInteractive">{`
           (function tryInitSwiper(attempts) {
             if (typeof Swiper !== 'undefined' && document.querySelector('.lightning_swiper')) {
