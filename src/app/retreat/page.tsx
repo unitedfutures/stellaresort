@@ -10,37 +10,37 @@ export const metadata: Metadata = {
 
 const features = [
   {
-    icon: "📽",
+    img: "/retreat-icons/icon-projector.png",
     title: "大型スクリーン・プロジェクター",
     body: "プレゼンテーションやワークショップに最適な大型スクリーンとプロジェクターを完備。本格的な研修環境をご用意しています。",
   },
   {
-    icon: "📶",
+    img: "/retreat-icons/icon-wifi.png",
     title: "高速Wi-Fi完備",
     body: "安定した高速インターネット環境。オンライン会議やクラウドツールの利用もストレスなく行えます。",
   },
   {
-    icon: "🏠",
+    img: "/retreat-icons/icon-private.png",
     title: "完全貸切・プライベート空間",
     body: "他のゲストを気にせず、チームだけの空間で集中して議論できます。機密情報を扱う会議にも安心です。",
   },
   {
-    icon: "🍖",
+    img: "/retreat-icons/icon-bbq.png",
     title: "会議後はBBQや焚き火",
     body: "仕事モードをオフにしてチームで囲むBBQと焚き火。リラックスした雰囲気がアイデアと絆を生みます。",
   },
   {
-    icon: "🧖",
+    img: "/retreat-icons/icon-sauna.png",
     title: "バレルサウナでリフレッシュ",
     body: "八ヶ岳の澄んだ空気の中でサウナ体験。心身をリセットして翌日の集中力を高めます。",
   },
   {
-    icon: "✨",
+    img: "/retreat-icons/icon-stars.png",
     title: "満天の星空・自然体験",
     body: "都市では見られない満天の星空と八ヶ岳の自然。非日常の環境が、チームの新たな視点を引き出します。",
   },
   {
-    icon: "🔄",
+    img: "/retreat-icons/icon-headcount.png",
     title: "柔軟な人数変更に対応",
     body: "チェックイン1週間前までであれば完全無料で何度でも人数変更に対応いたします。参加者が直前まで確定しない場合もご安心ください。",
   },
@@ -183,7 +183,7 @@ export default function RetreatPage() {
         </div>
       </section>
 
-      {/* 6つの特徴 */}
+      {/* 7つの理由 */}
       <section style={{ padding: "5rem 2rem 6rem", backgroundColor: "#f7f6f4" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "4rem" }}>
@@ -199,7 +199,7 @@ export default function RetreatPage() {
                 letterSpacing: "0.08em",
               }}
             >
-              選ばれる6つの理由
+              研修合宿に選ばれる7つの理由
             </h2>
           </div>
           <div
@@ -219,7 +219,7 @@ export default function RetreatPage() {
                   boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
                 }}
               >
-                <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>{f.icon}</div>
+                <img src={f.img} alt={f.title} style={{ width: 80, height: 80, objectFit: "contain", marginBottom: "1rem" }} />
                 <h3
                   style={{
                     fontSize: "1rem",
