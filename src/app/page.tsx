@@ -428,7 +428,7 @@ export default function TopPage() {
       </section>
 
       {/* ===== 企業研修・合宿バナー ===== */}
-      <section style={{ position: "relative", overflow: "hidden", height: 320 }}>
+      <section style={{ position: "relative", overflow: "hidden", height: 160 }}>
         <img
           src="/wp-content/uploads/2025/01/BBQ-img-1-1024x482.jpg"
           alt="企業研修・合宿"
@@ -438,14 +438,14 @@ export default function TopPage() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            objectPosition: "center",
+            objectPosition: "center 60%",
           }}
         />
         <div
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(to right, rgba(0,20,35,0.82) 0%, rgba(0,20,35,0.5) 60%, rgba(0,20,35,0.2) 100%)",
+            backgroundColor: "rgba(0,20,35,0.68)",
           }}
         />
         <div
@@ -454,50 +454,51 @@ export default function TopPage() {
             zIndex: 1,
             height: "100%",
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            padding: "0 clamp(2rem, 8vw, 8rem)",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "0 clamp(2rem, 6vw, 6rem)",
+            gap: "2rem",
           }}
         >
-          <p style={{ fontSize: "0.68rem", letterSpacing: "0.32em", color: "rgba(255,255,255,0.6)", marginBottom: "0.8rem", textTransform: "uppercase" }}>
-            CORPORATE RETREAT
-          </p>
-          <h2
-            style={{
-              fontSize: "clamp(1.4rem, 3vw, 2rem)",
-              fontWeight: 700,
-              color: "#fff",
-              lineHeight: 1.5,
-              marginBottom: "1.2rem",
-              letterSpacing: "0.06em",
-              borderBottom: "none",
-            }}
-          >
-            チームの力を引き出す、<br />
-            八ヶ岳の合宿へ。
-          </h2>
-          <p style={{ fontSize: "0.88rem", color: "rgba(255,255,255,0.8)", lineHeight: 1.9, marginBottom: "2rem" }}>
-            大型スクリーン・高速Wi-Fi・完全貸切。<br />
-            研修の後はBBQ・サウナ・満天の星空。
-          </p>
           <div>
-            <Link
-              href="/retreat"
+            <p style={{ fontSize: "0.62rem", letterSpacing: "0.3em", color: "rgba(255,255,255,0.55)", marginBottom: "0.4rem", textTransform: "uppercase" }}>
+              CORPORATE RETREAT
+            </p>
+            <h2
               style={{
-                display: "inline-block",
-                padding: "0.8rem 2rem",
-                backgroundColor: "#fff",
-                color: "#003144",
-                textDecoration: "none",
+                fontSize: "clamp(1rem, 2.5vw, 1.35rem)",
                 fontWeight: 700,
-                fontSize: "0.85rem",
-                letterSpacing: "0.08em",
-                borderRadius: 3,
+                color: "#fff",
+                lineHeight: 1.5,
+                letterSpacing: "0.05em",
+                borderBottom: "none",
+                margin: 0,
               }}
             >
-              企業研修・合宿について詳しく →
-            </Link>
+              チームの力を引き出す、八ヶ岳の合宿へ。
+            </h2>
+            <p style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.7)", marginTop: "0.4rem", margin: "0.4rem 0 0" }}>
+              大型スクリーン・高速Wi-Fi・完全貸切 ／ BBQ・サウナ・満天の星空
+            </p>
           </div>
+          <Link
+            href="/retreat"
+            style={{
+              flexShrink: 0,
+              display: "inline-block",
+              padding: "0.7rem 1.8rem",
+              backgroundColor: "#fff",
+              color: "#003144",
+              textDecoration: "none",
+              fontWeight: 700,
+              fontSize: "0.82rem",
+              letterSpacing: "0.06em",
+              borderRadius: 3,
+              whiteSpace: "nowrap",
+            }}
+          >
+            詳しく見る →
+          </Link>
         </div>
       </section>
 
