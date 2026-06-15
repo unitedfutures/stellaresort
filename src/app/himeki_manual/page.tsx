@@ -10,7 +10,7 @@ const html = "<div class=\"entry-body\">\n\t\t\t\t\n<div id=\"toc_container\" cl
 
 export default function HimekiManualPage() {
   return (
-    <SiteLayout title="Stella八ヶ岳姫木平　ハウスマニュアル" breadcrumb="ハウスマニュアル（姫木平）">
+    <SiteLayout title="Stella八ヶ岳姫木平　ハウスマニュアル" breadcrumb="ハウスマニュアル（姫木平）" fullWidth>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </SiteLayout>
   );
