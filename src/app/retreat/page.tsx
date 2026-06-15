@@ -5,7 +5,7 @@ import SiteLayout from "@/components/SiteLayout";
 export const metadata: Metadata = {
   title: "企業研修・合宿 | Stella 八ヶ岳",
   description:
-    "八ヶ岳の一棟貸切でオフサイト研修・合宿を。大型スクリーン・プロジェクター・高速Wi-Fi完備。会議の後はBBQ・サウナ・星空観賞でチームの絆を深める。最大19名収容。",
+    "八ヶ岳の一棟貸切でオフサイト研修・合宿を。大型スクリーン・プロジェクター・高速Wi-Fi完備。会議の後はBBQ・サウナ・星空観賞でチームの絆を深める。最大24名収容。",
 };
 
 const features = [
@@ -336,7 +336,7 @@ export default function RetreatPage() {
                     Stella 八ヶ岳 原村
                   </h3>
                   <p style={{ fontSize: "0.82rem", color: "#003144", fontWeight: 600, marginBottom: "0.8rem" }}>
-                    〜10名程度の少人数研修に
+                    最大24名収容・研修・合宿に
                   </p>
                   <p style={{ fontSize: "0.88rem", color: "#666", lineHeight: 1.9, marginBottom: "1.5rem" }}>
                     長野県諏訪郡原村。八ヶ岳の麓に佇む一棟貸切の宿。
