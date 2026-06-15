@@ -42,12 +42,12 @@ const features = [
 ];
 
 const flow = [
-  { time: "午前", label: "チェックイン・施設確認", note: "荷物を置いてすぐに研修開始" },
-  { time: "午前〜午後", label: "研修・ワークショップ", note: "大型スクリーン・Wi-Fiフル活用" },
-  { time: "夕方", label: "BBQ・焚き火", note: "チームで囲む炎がアイデアを生む" },
-  { time: "夜", label: "サウナ・星空観賞", note: "八ヶ岳の夜空で頭をリセット" },
-  { time: "翌朝", label: "朝の散策・朝食", note: "澄んだ空気で一日をスタート" },
-  { time: "午前〜", label: "2日目の研修・チェックアウト", note: "テーマを深堀り、行動計画へ" },
+  { time: "15:00", label: "チェックイン・施設確認", note: "荷物を置いて研修スタート" },
+  { time: "15:30〜", label: "研修・ワークショップ", note: "大型スクリーン・Wi-Fiフル活用" },
+  { time: "18:00〜", label: "BBQ・焚き火", note: "チームで囲む炎がアイデアを生む" },
+  { time: "21:00〜", label: "サウナ・星空観賞", note: "八ヶ岳の夜空で頭をリセット" },
+  { time: "翌朝", label: "朝食・朝の散策", note: "澄んだ空気で2日目をスタート" },
+  { time: "〜10:00", label: "2日目の研修・チェックアウト", note: "テーマを深堀り、行動計画へ" },
 ];
 
 export default function RetreatPage() {
