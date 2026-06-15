@@ -219,18 +219,20 @@ export default function RetreatPage() {
                   boxShadow: "0 2px 16px rgba(0,0,0,0.05)",
                 }}
               >
-                <img src={f.img} alt={f.title} style={{ width: 80, height: 80, objectFit: "contain", marginBottom: "1rem" }} />
-                <h3
-                  style={{
-                    fontSize: "1rem",
-                    fontWeight: 700,
-                    color: "#111",
-                    marginBottom: "0.8rem",
-                    letterSpacing: "0.04em",
-                  }}
-                >
-                  {f.title}
-                </h3>
+                <div style={{ display: "flex", alignItems: "center", gap: "1.2rem", marginBottom: "1rem" }}>
+                  <img src={f.img} alt={f.title} style={{ width: 64, height: 64, objectFit: "contain", flexShrink: 0 }} />
+                  <h3
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: 700,
+                      color: "#111",
+                      letterSpacing: "0.04em",
+                      margin: 0,
+                    }}
+                  >
+                    {f.title}
+                  </h3>
+                </div>
                 <p style={{ fontSize: "0.88rem", color: "#666", lineHeight: 1.9 }}>{f.body}</p>
               </div>
             ))}
