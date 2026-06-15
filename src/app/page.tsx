@@ -428,7 +428,7 @@ export default function TopPage() {
       </section>
 
       {/* ===== 企業研修・合宿バナー ===== */}
-      <section style={{ padding: "0 clamp(1.5rem, 5vw, 4rem) 4rem" }}>
+      <section style={{ padding: "3rem clamp(1.5rem, 5vw, 4rem) 4rem" }}>
       <section style={{ position: "relative", overflow: "hidden", height: 160, borderRadius: 6 }}>
         <img
           src="/wp-content/uploads/2025/01/BBQ-img-1-1024x482.jpg"
