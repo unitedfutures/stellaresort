@@ -246,7 +246,7 @@ export default function TopPage() {
       {/* ===== 2施設カード ===== */}
       <section
         style={{
-          padding: "2rem 2rem 7rem",
+          padding: "2rem 2rem 4rem",
           backgroundColor: "#f7f6f4",
         }}
       >
