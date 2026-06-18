@@ -108,6 +108,47 @@ A: はい、企業研修・オフサイト合宿に最適です。詳しくは h
 - 両施設共通の情報（チェックイン時間・人数変更ポリシーなど）はそのまま答えてよい
 `;
 
+const TOOLS: Anthropic.Tool[] = [
+  {
+    name: "check_haramura_availability",
+    description:
+      "Stella 八ヶ岳 原村の空室カレンダーをリアルタイムで取得する。宿泊可能日・空き状況を聞かれたときに使う。",
+    input_schema: {
+      type: "object" as const,
+      properties: {},
+      required: [],
+    },
+  },
+];
+
+async function fetchHaramuraAvailability(baseUrl: string): Promise<string> {
+  try {
+    const res = await fetch(`${baseUrl}/api/availability`);
+    const data = await res.json();
+    if (data.error) return `空室情報の取得に失敗しました: ${data.error}`;
+
+    const dates: string[] = data.availableDates ?? [];
+    if (dates.length === 0) return "現在空室のある日はありません。";
+
+    // YYYYMMDD → YYYY-MM-DD に変換してグループ化
+    const byMonth: Record<string, string[]> = {};
+    for (const d of dates) {
+      const key = `${d.slice(0, 4)}年${d.slice(4, 6)}月`;
+      const day = `${parseInt(d.slice(6, 8))}日`;
+      if (!byMonth[key]) byMonth[key] = [];
+      byMonth[key].push(day);
+    }
+
+    const lines = Object.entries(byMonth)
+      .slice(0, 4) // 直近4ヶ月分
+      .map(([month, days]) => `${month}: ${days.join("・")}`);
+
+    return `【原村 空室日（直近4ヶ月）】\n${lines.join("\n")}\n※最新情報は予約ページでご確認ください。`;
+  } catch {
+    return "空室情報の取得中にエラーが発生しました。";
+  }
+}
+
 export async function POST(req: NextRequest) {
   try {
     const { messages } = await req.json();
@@ -116,15 +157,53 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Invalid messages" }, { status: 400 });
     }
 
+    const baseUrl = req.nextUrl.origin;
+    const recentMessages = messages.slice(-10);
+
+    // 1回目のClaudeリクエスト（tool useあり）
     const response = await client.messages.create({
       model: "claude-haiku-4-5-20251001",
       max_tokens: 1024,
       system: SYSTEM_PROMPT,
-      messages: messages.slice(-10), // 直近10件のみ送信
+      tools: TOOLS,
+      messages: recentMessages,
     });
 
-    const text = response.content[0].type === "text" ? response.content[0].text : "";
-    return NextResponse.json({ message: text });
+    // ツール呼び出しがなければそのまま返す
+    if (response.stop_reason !== "tool_use") {
+      const text = response.content.find((b) => b.type === "text");
+      return NextResponse.json({ message: text?.type === "text" ? text.text : "" });
+    }
+
+    // ツール呼び出しを処理
+    const toolUseBlock = response.content.find((b) => b.type === "tool_use");
+    if (!toolUseBlock || toolUseBlock.type !== "tool_use") {
+      return NextResponse.json({ message: "" });
+    }
+
+    const toolResult =
+      toolUseBlock.name === "check_haramura_availability"
+        ? await fetchHaramuraAvailability(baseUrl)
+        : "ツールが見つかりません";
+
+    // 2回目のClaudeリクエスト（ツール結果を渡す）
+    const response2 = await client.messages.create({
+      model: "claude-haiku-4-5-20251001",
+      max_tokens: 1024,
+      system: SYSTEM_PROMPT,
+      tools: TOOLS,
+      messages: [
+        ...recentMessages,
+        { role: "assistant", content: response.content },
+        {
+          role: "user",
+          content: [{ type: "tool_result", tool_use_id: toolUseBlock.id, content: toolResult }],
+        },
+      ],
+    });
+
+    const text2 = response2.content.find((b) => b.type === "text");
+    return NextResponse.json({ message: text2?.type === "text" ? text2.text : "" });
   } catch (err) {
     console.error("Chat API error:", err);
     return NextResponse.json({ error: "サーバーエラーが発生しました" }, { status: 500 });
