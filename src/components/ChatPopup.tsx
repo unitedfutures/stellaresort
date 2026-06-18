@@ -230,51 +230,113 @@ export default function ChatPopup() {
       )}
 
       {/* 起動ボタン */}
-      <button
-        onClick={() => setOpen((v) => !v)}
-        style={{
-          position: "fixed",
-          bottom: 24,
-          right: 20,
-          height: 48,
-          padding: "0 1.2rem",
-          borderRadius: 24,
-          backgroundColor: "#003144",
-          color: "#fff",
-          border: "none",
-          cursor: "pointer",
-          fontSize: "0.88rem",
-          fontWeight: 700,
-          letterSpacing: "0.04em",
-          boxShadow: "0 4px 20px rgba(0,49,68,0.5)",
-          zIndex: 10001,
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          whiteSpace: "nowrap",
-          transition: "transform 0.2s, box-shadow 0.2s",
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = "scale(1.05)";
-          e.currentTarget.style.boxShadow = "0 6px 24px rgba(0,49,68,0.6)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,49,68,0.5)";
-        }}
-        aria-label={open ? "チャットを閉じる" : "チャットで質問する"}
-      >
-        {open ? (
-          <>✕ <span>閉じる</span></>
-        ) : (
-          <><span style={{ fontSize: "1.1rem" }}>💬</span><span>ご質問はこちら</span></>
-        )}
-      </button>
+      {!open && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 24,
+            right: 20,
+            zIndex: 10001,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-end",
+            gap: "0.5rem",
+          }}
+        >
+          {/* 吹き出しラベル */}
+          <div
+            style={{
+              backgroundColor: "#fff",
+              color: "#003144",
+              fontSize: "0.78rem",
+              fontWeight: 700,
+              padding: "0.4rem 0.8rem",
+              borderRadius: 20,
+              boxShadow: "0 2px 12px rgba(0,0,0,0.15)",
+              whiteSpace: "nowrap",
+              border: "1.5px solid #003144",
+              animation: "chatbounce 2s ease-in-out infinite",
+            }}
+          >
+            施設についてご質問はありますか？
+          </div>
+
+          {/* メインボタン */}
+          <button
+            onClick={() => setOpen(true)}
+            style={{
+              height: 52,
+              padding: "0 1.4rem",
+              borderRadius: 26,
+              backgroundColor: "#003144",
+              color: "#fff",
+              border: "none",
+              cursor: "pointer",
+              fontSize: "0.92rem",
+              fontWeight: 700,
+              letterSpacing: "0.04em",
+              boxShadow: "0 4px 20px rgba(0,49,68,0.5)",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              whiteSpace: "nowrap",
+              transition: "transform 0.2s, box-shadow 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.boxShadow = "0 6px 24px rgba(0,49,68,0.65)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,49,68,0.5)";
+            }}
+            aria-label="チャットで質問する"
+          >
+            <span style={{ fontSize: "1.2rem" }}>💬</span>
+            <span>AIに聞く</span>
+          </button>
+        </div>
+      )}
+
+      {open && (
+        <button
+          onClick={() => setOpen(false)}
+          style={{
+            position: "fixed",
+            bottom: 24,
+            right: 20,
+            height: 44,
+            padding: "0 1.2rem",
+            borderRadius: 22,
+            backgroundColor: "#555",
+            color: "#fff",
+            border: "none",
+            cursor: "pointer",
+            fontSize: "0.85rem",
+            fontWeight: 600,
+            boxShadow: "0 4px 16px rgba(0,0,0,0.3)",
+            zIndex: 10001,
+            display: "flex",
+            alignItems: "center",
+            gap: "0.4rem",
+            transition: "transform 0.2s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          aria-label="チャットを閉じる"
+        >
+          ✕ 閉じる
+        </button>
+      )}
 
       <style>{`
         @keyframes chatdot {
           0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
           40% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes chatbounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-4px); }
         }
         .goog-te-banner-frame { display: none !important; }
         body { top: 0 !important; }
