@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import ChatPopup from "@/components/ChatPopup";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -88,6 +89,7 @@ export default function RootLayout({
       <body className="wp-embed-responsive wp-theme-lightning vk-blocks sidebar-fix sidebar-fix-priority-top device-pc fa_v6_css">
         <div id="google_translate_element" style={{ display: "none" }} />
         {children}
+        <ChatPopup />
         <Script src="/wp-includes/js/jquery/jquery.minf43b.js" strategy="beforeInteractive" />
         <Script src="/wp-includes/js/jquery/jquery-migrate.min5589.js" strategy="beforeInteractive" />
         <Script src="/wp-content/plugins/vk-blocks-pro/vendor/vektor-inc/vk-swiper/src/assets/js/swiper-bundle.min.js" strategy="afterInteractive" />
