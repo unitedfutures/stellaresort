@@ -236,26 +236,39 @@ export default function ChatPopup() {
           position: "fixed",
           bottom: 24,
           right: 20,
-          width: 56,
-          height: 56,
-          borderRadius: "50%",
+          height: 48,
+          padding: "0 1.2rem",
+          borderRadius: 24,
           backgroundColor: "#003144",
           color: "#fff",
           border: "none",
           cursor: "pointer",
-          fontSize: open ? "1.2rem" : "1.5rem",
-          boxShadow: "0 4px 20px rgba(0,49,68,0.45)",
+          fontSize: "0.88rem",
+          fontWeight: 700,
+          letterSpacing: "0.04em",
+          boxShadow: "0 4px 20px rgba(0,49,68,0.5)",
           zIndex: 10001,
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          transition: "transform 0.2s, background-color 0.2s",
+          gap: "0.5rem",
+          whiteSpace: "nowrap",
+          transition: "transform 0.2s, box-shadow 0.2s",
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
-        onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "scale(1.05)";
+          e.currentTarget.style.boxShadow = "0 6px 24px rgba(0,49,68,0.6)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "scale(1)";
+          e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,49,68,0.5)";
+        }}
         aria-label={open ? "チャットを閉じる" : "チャットで質問する"}
       >
-        {open ? "✕" : "💬"}
+        {open ? (
+          <>✕ <span>閉じる</span></>
+        ) : (
+          <><span style={{ fontSize: "1.1rem" }}>💬</span><span>ご質問はこちら</span></>
+        )}
       </button>
 
       <style>{`
