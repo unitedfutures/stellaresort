@@ -10,7 +10,7 @@ const html = "<div class=\"entry-body\">\n\t\t\t\t\n<div id=\"toc_container\" cl
 
 export default function HimekiManualPage() {
   return (
-    <SiteLayout title="Stella\u516b\u30f6\u5cb3\u59eb\u6728\u5e73\u3000\u30cf\u30a6\u30b9\u30de\u30cb\u30e5\u30a2\u30eb" breadcrumb="\u30cf\u30a6\u30b9\u30de\u30cb\u30e5\u30a2\u30eb\uff08\u59eb\u6728\u5e73\uff09" fullWidth>
+    <SiteLayout title="Stella\u516b\u30f6\u5cb3\u59eb\u6728\u5e73\u3000\u30cf\u30a6\u30b9\u30de\u30cb\u30e5\u30a2\u30eb" breadcrumb="\u59eb\u6728\u5e73 \uff1e \u30cf\u30a6\u30b9\u30de\u30cb\u30e5\u30a2\u30eb" fullWidth>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </SiteLayout>
   );
