@@ -1,13 +1,19 @@
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 
+interface SubNavItem {
+  label: string;
+  href: string;
+}
+
 interface SiteLayoutProps {
   title: string;
   breadcrumb: string;
   children: React.ReactNode;
   fullWidth?: boolean;
+  subNav?: SubNavItem[];
 }
 
-export default function SiteLayout({ title, breadcrumb, children, fullWidth }: SiteLayoutProps) {
+export default function SiteLayout({ title, breadcrumb, children, fullWidth, subNav }: SiteLayoutProps) {
   return (
     <>
       <header id="site-header" className="site-header site-header--layout--nav-float">
@@ -34,18 +40,49 @@ export default function SiteLayout({ title, breadcrumb, children, fullWidth }: S
               <span><img src="/wp-content/uploads/2024/12/stella-logo-design-pre-4.png" alt="Stella 八ヶ岳" /></span>
             </a>
           </div>
-          <nav id="global-nav" className="global-nav global-nav--layout--float-right global-nav--scrolled--logo-and-nav-container">
-            <ul className="menu vk-menu-acc global-nav-list nav">
-              <li className="menu-item"><a href="https://stellaresort.jp/"><strong className="global-nav-name">ホーム</strong></a></li>
-              <li className="menu-item"><a href="https://stellaresort.jp/#stay2"><strong className="global-nav-name">ご宿泊</strong></a></li>
-              <li className="menu-item"><a href="https://stellaresort.jp/#information"><strong className="global-nav-name">基本情報</strong></a></li>
-              <li className="menu-item"><a href="https://stellaresort.jp/#access"><strong className="global-nav-name">アクセス</strong></a></li>
-              <li className="menu-item"><a href="https://stellaresort.jp/#experience"><strong className="global-nav-name">体験</strong></a></li>
-              <li className="menu-item"><a href="https://stellaresort.jp/#booking"><strong className="global-nav-name">ご予約</strong></a></li>
-              <li className="menu-item"><a href="https://stellaresort.jp/contact/"><strong className="global-nav-name">お問い合わせ</strong></a></li>
-            </ul>
-          </nav>
+          {subNav ? (
+            /* 施設ページ用：1段目に施設選択ナビ */
+            <nav id="global-nav" className="global-nav global-nav--layout--float-right global-nav--scrolled--logo-and-nav-container">
+              <ul className="menu vk-menu-acc global-nav-list nav">
+                <li className="menu-item"><a href="/haramura"><strong className="global-nav-name">原村</strong></a></li>
+                <li className="menu-item"><a href="/himeki"><strong className="global-nav-name">姫木平</strong></a></li>
+                <li className="menu-item"><a href="https://stellaresort.jp/contact/"><strong className="global-nav-name">お問い合わせ</strong></a></li>
+              </ul>
+            </nav>
+          ) : (
+            /* 通常ページ用：既存ナビ */
+            <nav id="global-nav" className="global-nav global-nav--layout--float-right global-nav--scrolled--logo-and-nav-container">
+              <ul className="menu vk-menu-acc global-nav-list nav">
+                <li className="menu-item"><a href="https://stellaresort.jp/"><strong className="global-nav-name">ホーム</strong></a></li>
+                <li className="menu-item"><a href="https://stellaresort.jp/#stay2"><strong className="global-nav-name">ご宿泊</strong></a></li>
+                <li className="menu-item"><a href="https://stellaresort.jp/#information"><strong className="global-nav-name">基本情報</strong></a></li>
+                <li className="menu-item"><a href="https://stellaresort.jp/#access"><strong className="global-nav-name">アクセス</strong></a></li>
+                <li className="menu-item"><a href="https://stellaresort.jp/#experience"><strong className="global-nav-name">体験</strong></a></li>
+                <li className="menu-item"><a href="https://stellaresort.jp/#booking"><strong className="global-nav-name">ご予約</strong></a></li>
+                <li className="menu-item"><a href="https://stellaresort.jp/contact/"><strong className="global-nav-name">お問い合わせ</strong></a></li>
+              </ul>
+            </nav>
+          )}
         </div>
+
+        {/* 2段目：施設内セクションナビ */}
+        {subNav && (
+          <div style={{ backgroundColor: "#f7f7f7", borderBottom: "1px solid #e0e0e0" }}>
+            <div className="container">
+              <nav>
+                <ul style={{ display: "flex", flexWrap: "wrap", listStyle: "none", margin: 0, padding: "0.3rem 0", gap: "0.1rem" }}>
+                  {subNav.map((item) => (
+                    <li key={item.href}>
+                      <a href={item.href} className="facility-subnav-link">
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        )}
       </header>
 
       <div className="page-header">

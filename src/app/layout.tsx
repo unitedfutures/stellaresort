@@ -78,6 +78,17 @@ export default function RootLayout({
           @media (max-width: 991px) {
             .site-header-logo img { max-height: 80px; }
           }
+          .facility-subnav-link {
+            display: block;
+            padding: 0.45rem 0.9rem;
+            font-size: 0.82rem;
+            color: #003144;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+          }
+          .facility-subnav-link:hover { color: #1e73be; }
           img.wp-smiley, img.emoji {
             display: inline !important; border: none !important;
             box-shadow: none !important; height: 1em !important;

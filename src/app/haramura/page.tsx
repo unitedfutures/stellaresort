@@ -42,11 +42,22 @@ const haramuraBookingLinks = [
   },
 ];
 
+const facilitySubNav = [
+  { label: "ページトップ", href: "#" },
+  { label: "ご宿泊", href: "#stay2" },
+  { label: "基本情報", href: "#information" },
+  { label: "アクセス", href: "#access" },
+  { label: "体験", href: "#experience" },
+  { label: "ご予約", href: "#booking" },
+];
+
 export default function HaramuraPage() {
   return (
-    <SiteLayout title="Stella八ヶ岳原村" breadcrumb="原村" fullWidth>
+    <SiteLayout title="Stella八ヶ岳原村" breadcrumb="原村" fullWidth subNav={facilitySubNav}>
       <div dangerouslySetInnerHTML={{ __html: html }} />
-      <BookingSection links={haramuraBookingLinks} />
+      <div id="booking">
+        <BookingSection links={haramuraBookingLinks} />
+      </div>
     </SiteLayout>
   );
 }

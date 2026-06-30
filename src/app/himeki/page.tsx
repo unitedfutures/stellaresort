@@ -27,11 +27,22 @@ const himekiBookingLinks = [
   },
 ];
 
+const facilitySubNav = [
+  { label: "ページトップ", href: "#" },
+  { label: "ご宿泊", href: "#stay2" },
+  { label: "基本情報", href: "#information" },
+  { label: "アクセス", href: "#access" },
+  { label: "体験", href: "#experience" },
+  { label: "ご予約", href: "#booking" },
+];
+
 export default function HimekiPage() {
   return (
-    <SiteLayout title="Stella八ヶ岳姫木平" breadcrumb="姫木平" fullWidth>
+    <SiteLayout title="Stella八ヶ岳姫木平" breadcrumb="姫木平" fullWidth subNav={facilitySubNav}>
       <div dangerouslySetInnerHTML={{ __html: html }} />
-      <BookingSection links={himekiBookingLinks} />
+      <div id="booking">
+        <BookingSection links={himekiBookingLinks} />
+      </div>
     </SiteLayout>
   );
 }
