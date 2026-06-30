@@ -10,7 +10,7 @@ const html = "<div class=\"entry-body\">\n\t\t\t\t\n<div id=\"toc_container\" cl
 
 export default function HaramuraManualPage() {
   return (
-    <SiteLayout title="Stella八ヶ岳原村　ハウスマニュアル" breadcrumb="原村 ＞ ハウスマニュアル" fullWidth>
+    <SiteLayout title="Stella八ヶ岳原村　ハウスマニュアル" breadcrumb={[{ label: "原村", href: "/haramura" }, { label: "ハウスマニュアル" }]} fullWidth>
       <div dangerouslySetInnerHTML={{ __html: html }} />
     </SiteLayout>
   );

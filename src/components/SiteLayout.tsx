@@ -5,15 +5,23 @@ interface SubNavItem {
   href: string;
 }
 
+interface BreadcrumbItem {
+  label: string;
+  href?: string;
+}
+
 interface SiteLayoutProps {
   title: string;
-  breadcrumb: string;
+  breadcrumb: string | BreadcrumbItem[];
   children: React.ReactNode;
   fullWidth?: boolean;
   subNav?: SubNavItem[];
 }
 
 export default function SiteLayout({ title, breadcrumb, children, fullWidth, subNav }: SiteLayoutProps) {
+  const breadcrumbItems: BreadcrumbItem[] = typeof breadcrumb === "string"
+    ? [{ label: breadcrumb }]
+    : breadcrumb;
   return (
     <>
       <header id="site-header" className="site-header site-header--layout--nav-float">
@@ -100,10 +108,16 @@ export default function SiteLayout({ title, breadcrumb, children, fullWidth, sub
               </a>
               <meta itemProp="position" content="1" />
             </li>
-            <li className="breadcrumb-list__item" itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
-              <span itemProp="name">{breadcrumb}</span>
-              <meta itemProp="position" content="2" />
-            </li>
+            {breadcrumbItems.map((item, i) => (
+              <li key={i} className="breadcrumb-list__item" itemProp="itemListElement" itemScope itemType="http://schema.org/ListItem">
+                {item.href ? (
+                  <a href={item.href} itemProp="item"><span itemProp="name">{item.label}</span></a>
+                ) : (
+                  <span itemProp="name">{item.label}</span>
+                )}
+                <meta itemProp="position" content={String(i + 2)} />
+              </li>
+            ))}
           </ol>
         </div>
       </div>
